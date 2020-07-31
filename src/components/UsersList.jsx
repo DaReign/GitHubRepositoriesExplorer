@@ -10,7 +10,7 @@ class UsersList extends Component {
       return (
         <div className="container-fluid">
           <div className="row">
-            <div className="cols col-sm-12 text-center mb-5 mt-5">
+            <div className="cols col-sm-12 text-center my-5">
               <img src={loading} alt="loading" />
             </div>
           </div>

@@ -8,6 +8,7 @@ const initialState = {
   users: [],
   userRepos: [],
   loadingUsers: false,
+  dataFetched: false,
   errorApiUsers: "",
 };
 
@@ -16,11 +17,13 @@ const offerReducer = (state = initialState, action) => {
     case FETCH_USERS_LIST_REQUEST:
       return {
         ...state,
+        dataFetched: false,
         loadingUsers: true,
       };
     case FETCH_USERS_LIST_SUCCESS:
       return {
         ...state,
+        dataFetched: true,
         loadingUsers: false,
         users: action.payload,
         errorApiUsers: "",
@@ -28,6 +31,7 @@ const offerReducer = (state = initialState, action) => {
     case FETCH_USERS_LIST_FAILURE:
       return {
         ...state,
+        dataFetched: true,
         loadingUsers: false,
         users: [],
         errorApiUsers: action.payload,

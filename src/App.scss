@@ -8,11 +8,21 @@ body {
   padding: 20px 15px 10px 15px;
   box-sizing: border-box;
   margin: 20px 0.9375rem;
+  transition: all 500ms ease-in-out;
 }
 
 .SearchComponent {
   .SearchComponent__input {
     width: 100%;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    background: $lightGrey;
+    border: 1px solid $grey;
+    transition: all 1s ease-in-out;
+    &:focus {
+      outline: none;
+      border: 1px solid $blue;
+    }
   }
 
   .SearchComponent__button {
@@ -25,5 +35,53 @@ body {
       background: $blue;
       box-shadow: 0 12px 32px 0 rgba(0, 0, 0, 0.25);
     }
+  }
+
+  .SearchComponent__resultInfo {
+    color: $veryDarkGrey;
+  }
+}
+
+.RepoComponent {
+  background: $grey;
+  .RepoComponent__description {
+    h2 {
+      font-size: 16px;
+    }
+  }
+}
+
+.reposContainer__handler {
+  padding: 10px 0;
+  background: $lightGrey;
+  cursor: pointer;
+
+  .zmdi {
+    position: relative;
+    top: 5px;
+  }
+
+  .zmdi-chevron-up {
+    display: block;
+  }
+
+  .zmdi-chevron-down {
+    display: none;
+  }
+
+  &.collapsed {
+    .zmdi-chevron-up {
+      display: none;
+    }
+    .zmdi-chevron-down {
+      display: block;
+    }
+  }
+}
+
+.reposContainer {
+  margin: 10px 15px;
+  &.collapsed {
+    display: none;
   }
 }
