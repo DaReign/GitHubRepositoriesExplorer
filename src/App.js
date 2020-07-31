@@ -1,41 +1,29 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { Component } from "react";
 import "./App.scss";
+import { Provider } from "react-redux";
+import store from "./redux/store";
+import SearchComponent from "./components/SearchComponent";
+import UsersList from "./components/UsersList";
 
-function App() {
-  return (
-    <div className="App">
-      <div class="container">
-        <div className="row">
-          <div className="col col-sm-12">
-            <button type="button" class="btn btn-primary">
-              Primary
-            </button>
+class App extends Component {
+  state = {};
+
+  render() {
+    return (
+      <Provider store={store}>
+        <div className="App">
+          <div className="container">
+            <div className="row">
+              <div className="cols col-sm-12 App__body">
+                <SearchComponent />
+                <UsersList />
+              </div>
+            </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm">One of three columns</div>
-          <div class="col-sm">One of three columns</div>
-          <div class="col-sm">One of three columns</div>
-        </div>
-      </div>
-
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      </Provider>
+    );
+  }
 }
 
 export default App;
